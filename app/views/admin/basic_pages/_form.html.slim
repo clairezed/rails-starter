@@ -1,14 +1,17 @@
 = f.hm_form_errors
+
 .form-group.row
-  .form_actions
-    label.form-label-default Affiché ?
-    .controls-default
-      label.radio-inline
-        = f.radio_button :enabled, true
+  .form-label-default
+    | Affiché ?
+  .controls-default
+    .form-check.form-check-inline
+      label.form-check-label
+        => f.radio_button :enabled, true
         | Oui
-      label.radio-inline
-        = f.radio_button :enabled, false
+      label.form-check-label
+        => f.radio_button :enabled, false
         | Non
+
 = f.hm_text_field :title, {}, {class: "required"}
 = f.hm_text_area :content, {rows: 15}
 = render partial: "admin/seos/fields_for_form", locals: {f: f}
