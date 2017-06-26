@@ -35,10 +35,10 @@ module Sortable
       def self.apply_sorts(params, default = { id: :asc })
         if params[:sort].present?
           field, dir = params[:sort].split(/\s*,\s*/).first.split /\s+/
-          klass = send(field, dir)
+          send(field, dir)
         else
           # tri par défaut
-          klass = order(default)
+          order(default)
         end
       end
     end

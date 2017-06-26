@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,42 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_215_170_753) do
+ActiveRecord::Schema.define(version: 20170215170753) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'admins', force: :cascade do |t|
-    t.string   'email',              default: '', null: false
-    t.string   'encrypted_password', default: '', null: false
-    t.integer  'sign_in_count',      default: 0
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.string   'current_sign_in_ip'
-    t.string   'last_sign_in_ip'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
-    t.index ['email'], name: 'index_admins_on_email', unique: true, using: :btree
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.integer  "sign_in_count",      default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
   end
 
-  create_table 'basic_pages', force: :cascade do |t|
-    t.string   'title'
-    t.text     'content'
-    t.integer  'position'
-    t.boolean  'enabled', default: false
-    t.datetime 'created_at',                 null: false
-    t.datetime 'updated_at',                 null: false
+  create_table "basic_pages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "position"
+    t.boolean  "enabled",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  create_table 'seos', force: :cascade do |t|
-    t.string   'slug'
-    t.string   'title'
-    t.string   'keywords'
-    t.text     'description'
-    t.string   'seoable_type'
-    t.integer  'seoable_id'
-    t.string   'param'
-    t.datetime 'created_at',   null: false
-    t.datetime 'updated_at',   null: false
-    t.index %w[seoable_type seoable_id], name: 'index_seos_on_seoable_type_and_seoable_id', using: :btree
+  create_table "seos", force: :cascade do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.string   "keywords"
+    t.text     "description"
+    t.string   "seoable_type"
+    t.integer  "seoable_id"
+    t.string   "param"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["seoable_type", "seoable_id"], name: "index_seos_on_seoable_type_and_seoable_id", using: :btree
   end
+
 end

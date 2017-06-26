@@ -24,9 +24,9 @@ module Seoable
 
   private
 
-  # Si non défini à la création, le slug correspond aux 100 premiers caractères du title.
+  # Si non defini à la creation, le slug correspond aux 100 premiers caracteres du title.
   # On doit le mettre ici (et non dans le model Seo) car la relation n'est pas encore
-  # existante pour pouvoir récupérer le title
+  # existante pour pouvoir recuperer le title
   def init_slug
     build_seo if seo.blank?
     seo.slug = title.to_s.truncate(100) if slug.blank?

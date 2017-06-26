@@ -62,21 +62,21 @@ module ApplicationHelper
     content_for :current_navigation_sub_section, sub_section
   end
 
-  # permet de déterminer si la page actuelle fait partie
-  # d'une section de navigation passée en paramètre
+  # permet de determiner si la page actuelle fait partie
+  # d'une section de navigation passee en parametre
   #
   def currently_in_section?(section)
     content_for(:current_navigation_section) == section.to_s
   end
 
-  # permet de déterminer si la page actuelle fait partie
-  # d'une sous-section de navigation passée en paramètre
+  # permet de determiner si la page actuelle fait partie
+  # d'une sous-section de navigation passee en parametre
   #
   def currently_in_sub_section?(sub_section)
     content_for(:current_navigation_sub_section) == sub_section.to_s
   end
 
-  # crée un lien enveloppé dans un li
+  # cree un lien enveloppe dans un li
   # dont la class est 'active' si la section ou la sous-section
   # de navigation courante est celle donnee en argument
   #
@@ -98,7 +98,7 @@ module ApplicationHelper
     content_tag :li, link_to(*args, &block), tag_options
   end
 
-  # récupère le contenu texte sans les balises html ni sauts de ligne.
+  # recupere le contenu texte sans les balises html ni sauts de ligne.
   # TODO : trying to find another method, so as to get rid of htmlentities gem
   def html_to_text(html)
     require 'htmlentities'
@@ -112,7 +112,7 @@ module ApplicationHelper
   #
   # Options :
   #   label: string
-  #   icon_type: string: "numeric" ou "size" ("alphabet" par défaut)
+  #   icon_type: string: "numeric" ou "size" ("alphabet" par defaut)
   #   descend: boolean
   #   default: boolean
   #
@@ -142,7 +142,7 @@ module ApplicationHelper
                   'attributes'
                 else
                   'alphabet'
-    end
+                end
     result = []
     result << link_to(label, args, class: dir)
     if cur_fld == fld

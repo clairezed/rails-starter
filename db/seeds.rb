@@ -14,4 +14,4 @@ else
   a1.update_attributes(password: 'password')
 end
 
-seo1 = Seo.where(param: 'home').first_or_create
+Seo.where(param: 'home').first_or_create

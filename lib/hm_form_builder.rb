@@ -82,7 +82,7 @@ module HomeMade
     end
 
     def hm_file_field(attribute, input_options = {}, div_options = {}, label = nil)
-      nothing, controls_class = set_form_and_controls_class(input_options[:class])
+      _nothing, controls_class = set_form_and_controls_class(input_options[:class])
       input = file_field attribute, input_options
 
       input_controls = @template.content_tag :div, input, class: controls_class
