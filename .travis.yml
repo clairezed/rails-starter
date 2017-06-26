@@ -11,7 +11,9 @@ rvm:
 #     - TZ="Australia/Melbourne"
 #     - TIMEZONE="Australia/Melbourne"
 #     - CI_NODE_TOTAL=5
-
+services:
+  - postgresql
+  
 before_script:
   - cp config/database.travis.yml config/database.yml
   # - cp config/application.yml.example config/application.yml
