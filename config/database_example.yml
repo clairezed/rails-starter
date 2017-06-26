@@ -10,9 +10,9 @@ local_credentials: &local_credentials
 development:
   <<: *default
   <<: *local_credentials
-  database: mir_bibnum_development
+  database: rails_starter_development
 
 test:
   <<: *default
   <<: *local_credentials
-  database: mir_bibnum_test
+  database: rails_starter_test
