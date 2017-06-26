@@ -25,7 +25,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 # Views ====================================================
-gem 'autoprefixer-rails', '~> 6.3.7'
+gem 'autoprefixer-rails', '~> 7.1.1'
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 gem 'font-awesome-rails'
 gem 'htmlentities', '~> 4.3.4'

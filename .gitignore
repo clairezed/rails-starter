@@ -17,3 +17,5 @@ dump.rdb
 routes.txt
 .idea
 log/services/*
+
+Gemfile.lock
