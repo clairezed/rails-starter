@@ -1,0 +1,30 @@
+# sudo: false
+
+language: ruby
+rvm:
+  - 2.4.0
+# cache: bundler
+# bundler_args: --without development
+
+# env:
+#   global:
+#     - TZ="Australia/Melbourne"
+#     - TIMEZONE="Australia/Melbourne"
+#     - CI_NODE_TOTAL=5
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  # - cp config/application.yml.example config/application.yml
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+
+  # Only install PhantomJS if it is not already present (ie. cached)
+  - npm list -g phantomjs-prebuilt@~2.1.7 --depth=0 || npm install -g phantomjs-prebuilt@~2.1.7
+  - export PATH=`npm bin -g`:$PATH
+
+
+
+script:
+  - bundle exec rspec spec
+
+notifications:
+  email: true
