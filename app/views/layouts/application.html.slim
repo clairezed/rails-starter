@@ -23,29 +23,35 @@ html lang="#{I18n.locale}"
     = render_document_ready_scripts 
   body
     header.main-header
-      .container
-        nav.navbar.navbar-light.bg-faded
-          button.navbar-toggler.hidden-sm-up data-target="#exCollapsingNavbar2" data-toggle="collapse" type="button" 
-            | &#9776;
-          #exCollapsingNavbar2.collapse.navbar-toggleable-xs
-            = link_to "PROJET", root_path, class: "navbar-brand" 
-            ul.nav.navbar-nav
+      nav.navbar.navbar-light.navbar-toggleable-md.bg-faded
+        button.navbar-toggler.navbar-toggler-right data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          span.navbar-toggler-icon
+        .container
+          = link_to root_path, class: "navbar-brand" do
+            = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
+            ' Projet
+
+          #navbarSupportedContent.collapse.navbar-collapse
+            ul.nav.navbar-nav.mr-auto
               li.nav-item
                 = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
               li.nav-item
                 = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
+
     = raw flash_messages 
     .container
       - unless cookies[:cookies_accepted] == "true"
         #cookies_alert.alert.cookies_alert
-          .col-md-6.col-md-offset-2.col-12
-            a.close data-dismiss="alert" href="#"
-            p
-              | Afin de vous proposer des services et offres adaptés à vos centres d'intérêts, nous utilisons des cookies.
-                En continuant de naviguer sur le site, vous déclarez accepter leur utilisation.
-          .col-md-3.col-12
-            = link_to "J'ai compris", "javascript:void(0)", class: "btn btn-primary", onclick: "ajax_accept_cookies('#{accept_cookies_path}')"
-            //= link_to "Fermer" , "", class: 'btn btn-secondary' , 'data-dismiss' => "alert"
+          .container
+            .row
+              .col-lg-6.offset-lg-1.col-md-8.col-12
+                a.close data-dismiss="alert" href="#"
+                p
+                  | Afin de vous proposer des services et offres adaptés à vos centres d'intérêts, nous utilisons des cookies.
+                    En continuant de naviguer sur le site, vous déclarez accepter leur utilisation.
+              .col-lg-3.col-md-4.col-12
+                = link_to "J'ai compris", "javascript:void(0)", class: "btn btn-primary", onclick: "ajax_accept_cookies('#{accept_cookies_path}')"
+                = link_to "En savoir plus" , "/cookies_info", class: 'btn btn-secondary'
 
       = yield
 
