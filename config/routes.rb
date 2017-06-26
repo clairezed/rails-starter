@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
   devise_for :admin
 
   # Concerns ======================================
@@ -13,18 +14,17 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :admins
     resources :basic_pages, concerns: :positionable
-    resources :seos, only: [:index, :edit, :update]
+    resources :seos, only: %i[index edit update]
     root to: 'dashboard#index'
   end
 
   # Front ======================================
-  
+
   resources :basic_pages, only: [:show]
-  put "/accept_cookies", to: "home#accept_cookies"
-  get "/:filename", to: "statics#show"
+  put '/accept_cookies', to: 'home#accept_cookies'
+  get '/:filename', to: 'statics#show'
 
   root to: 'home#index'
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

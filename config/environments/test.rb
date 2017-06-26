@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
-  
-  HOST = "localhost:3000"
+  HOST = 'localhost:3000'
   URL = "http://#{HOST}"
-  SYSTEM_MAILER     = "Studio HB <noreply@studio-hb.com>"
-  DEFAULT_RECIPIENT = "Contact Studio-hb <technique@studio-hb.com>"
-  routes.default_url_options = { :host => HOST }
-  config.action_mailer.default_url_options = { :host => HOST }
+  SYSTEM_MAILER     = 'Studio HB <noreply@studio-hb.com>'
+  DEFAULT_RECIPIENT = 'Contact Studio-hb <technique@studio-hb.com>'
+  routes.default_url_options = { host: HOST }
+  config.action_mailer.default_url_options = { host: HOST }
   config.action_mailer.asset_host = URL
-    
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.config.to_prepare do
-  Devise::Mailer.layout "mailer" # email.haml or email.erb
+  Devise::Mailer.layout 'mailer' # email.haml or email.erb
 end
 
 # Use this hook to configure devise mailer, warden hooks and so forth.

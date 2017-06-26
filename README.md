@@ -116,3 +116,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - https://github.com/mattbrictson/rails-template
 - https://github.com/elastic/elasticsearch-rails/tree/master/elasticsearch-rails/lib/rails/templates
 - https://github.com/spree/spree/tree/master/cmd  
+
+
+## Todo
+
+-> Vérifier la présence de "TODO" dans le code
+
+- remplacer will_paginate par kaminari
