@@ -8,7 +8,7 @@ feature 'Connexion/Déconnexion Admin' do
 
     expect(current_path).to eq(new_admin_session_path)
 
-    fill_in 'admin_email', with: 'technique@studio-hb.com'
+    fill_in 'admin_email', with: 'clairezuliani@gmail.com'
     fill_in 'admin_password', with: 'password'
     click_button 'Connexion'
 
@@ -19,7 +19,7 @@ feature 'Connexion/Déconnexion Admin' do
     visit admin_root_path
 
     expect(current_path).to eq(new_admin_session_path)
-    fill_in 'admin_email', with: 'technique@studio-hb.com'
+    fill_in 'admin_email', with: 'clairezuliani@gmail.com'
     fill_in 'admin_password', with: 'wrong_password'
     click_button 'Connexion'
 
