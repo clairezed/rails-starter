@@ -98,7 +98,7 @@ module ApplicationHelper
   end
 
   # récupère le contenu texte sans les balises html ni sauts de ligne.
-  #
+  # TODO : trying to find another method, so as to get rid of htmlentities gem
   def html_to_text(html)
     require 'htmlentities'
     html = HTMLEntities.new.decode(html)

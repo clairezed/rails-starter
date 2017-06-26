@@ -12,6 +12,7 @@ Rails personal project base
 - ruby 2.4.0
 - rails 5.0.1
 - postgresql
+- 
 
 ```
 Give examples
@@ -20,8 +21,8 @@ Give examples
 ### Installing
 
 ```
-git clone git@github.com:clairezed/mobility-toolbox.git
-cd mobility-toolbox
+git clone git@github.com:clairezed/rails-starter.git
+cd rails-starter
 bundle install
 cd config
 touch database.yml
@@ -40,6 +41,10 @@ Your website should be accessile at [localhost:3000](http://localhost:3000/).
 *End with an example of getting some data out of the system or using it for a little demo*
 -> TODO
 
+### Using 
+
+- **mailcatcher** : development uses mailcatcher 
+
 ## Running the tests
 
 *Explain how to run the automated tests for this system*
@@ -52,8 +57,8 @@ Your website should be accessile at [localhost:3000](http://localhost:3000/).
 
 ### And coding style tests
 
-*Explain what these tests test and why*
--> TODO
+- rubocop
+- bullet : config in `config/environments/development.rb`
 
 ## Deployment
 

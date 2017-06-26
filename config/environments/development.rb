@@ -1,15 +1,5 @@
 Rails.application.configure do
   
-  HOST = "localhost:3000"
-  URL = "http://#{HOST}"
-  SYSTEM_MAILER     = "Studio HB <noreply@studio-hb.com>"
-  DEFAULT_RECIPIENT = "Contact Studio-hb <technique@studio-hb.com>"
-  routes.default_url_options = { :host => HOST }
-  config.action_mailer.default_url_options = { :host => HOST }
-  config.action_mailer.asset_host = URL
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
-  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -62,4 +52,26 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Bullet config =====================================================
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+    # Bullet.add_footer = true
+  end
+
+  HOST = "localhost:3000"
+  URL = "http://#{HOST}"
+
+  SYSTEM_MAILER     = "Studio HB <noreply@studio-hb.com>"
+  DEFAULT_RECIPIENT = "Contact Studio-hb <technique@studio-hb.com>"
+  
+  routes.default_url_options = { :host => HOST }
+  
+  # Mail config =========================
+  # Config for mailcatcher
+  config.action_mailer.default_url_options = { :host => HOST }
+  config.action_mailer.asset_host = URL
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
