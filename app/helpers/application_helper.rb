@@ -91,7 +91,8 @@ module ApplicationHelper
 
     li_class = options.delete(:li_class) || 'nav-item'
     if section.present? && currently_in_section?(section) || sub_section.present? && currently_in_sub_section?(sub_section)
-      li_class << ' active'
+      # dup to deal with frozen_string_literal
+      li_class.dup << ' active'
     end
     tag_options = { class: li_class }
     content_tag :li, link_to(*args, &block), tag_options
