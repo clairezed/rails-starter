@@ -3,8 +3,8 @@
 language: ruby
 rvm:
   - 2.4.0
-# cache: bundler
-# bundler_args: --without development
+cache: bundler
+bundler_args: --without development
 
 # env:
 #   global:
