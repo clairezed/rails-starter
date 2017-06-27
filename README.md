@@ -12,11 +12,7 @@ Rails personal project base
 - ruby 2.4.0
 - rails 5.0.1
 - postgresql
-- 
 
-```
-Give examples
-```
 
 ### Installing
 
@@ -24,18 +20,14 @@ Give examples
 git clone git@github.com:clairezed/rails-starter.git
 cd rails-starter
 bundle install
-cd config
-touch database.yml
-```
-
-Fill database.yml from database_example.yml, but with your own database connection credentials
-
-```
-rake db:setup
+cp config/database_example.yml config/database.yml
+# Update database.yml to cope with your own database connection credentials
+bin/rake db:setup
+bin/rake db:seed
 rails server
 ```
 
-Your website should be accessile at [localhost:3000](http://localhost:3000/).
+Your website should be accessible at [localhost:3000](http://localhost:3000/).
 
 
 *End with an example of getting some data out of the system or using it for a little demo*
@@ -45,10 +37,21 @@ Your website should be accessile at [localhost:3000](http://localhost:3000/).
 
 - **mailcatcher** : development uses mailcatcher 
 
+Email notifications are be caught by [MailCatcher](https://mailcatcher.me/) in development. Install it globally if you haven't yet. 
+
+Then, to see the emails sent by the platform, open your web browser at http://localhost:1080 to access the MailCatcher interface.
+
 ## Running the tests
 
-*Explain how to run the automated tests for this system*
--> TODO
+```bash
+RAILS_ENV=test rake db:setup
+RAILS_ENV=test bin/rake db:seed
+bundle exec rspec
+```
+
+The project could clearly have more tests. Don't hesitate to contribute, I'll be happy to help !
+
+There's a `.travis.yml` file to integrate with Travis CI.
 
 ### Break down into end to end tests
 
@@ -57,17 +60,17 @@ Your website should be accessile at [localhost:3000](http://localhost:3000/).
 
 ### And coding style tests
 
-- rubocop
+- rubocop : based on [ruby style guide](https://github.com/bbatsov/ruby-style-guide), but [relaxed](https://github.com/janlelis/relaxed.ruby.style/blob/master/.rubocop.yml). The aim is first to get rid of `rubocop_todo.yml`, then go toward stricter style guide if needed. 
 - bullet : config in `config/environments/development.rb`
 
 ## Deployment
 
-*Add additional notes about how to deploy this on a live system*
--> TODO
+- don't forget to change Admin password in production if you run the seeds. 
 
 ## Built With
 
 * [Bootstrap4](https://v4-alpha.getbootstrap.com/getting-started/introduction/) - alpha6
+* back office inspired by [Modular Admin](https://github.com/modularcode/modular-admin-html)
 
 ## Contributing
 

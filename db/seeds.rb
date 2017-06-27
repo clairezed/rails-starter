@@ -7,11 +7,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-a1 = Admin.where(email: 'clairezuliani@gmail.com').first_or_initialize
-if %w[production staging].include?(Rails.env)
-  a1.update_attributes(password: 'aqwxsz21')
-else
-  a1.update_attributes(password: 'password')
-end
+a1 = Admin.where(email: 'clairezuliani@gmail.com').first_or_create(password: 'password')
 
 Seo.where(param: 'home').first_or_create

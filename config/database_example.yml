@@ -4,8 +4,8 @@ default: &default
   timeout: 5000
 
 local_credentials: &local_credentials
-  login: zool
-  password: 
+  login: login
+  password: password
 
 development:
   <<: *default
