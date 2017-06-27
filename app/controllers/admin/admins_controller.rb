@@ -5,7 +5,7 @@ class Admin::AdminsController < Admin::BaseController
 
   def index
     params[:sort] ||= 'email ASC'
-    @admins = Admin.where.not(email: 'technique@studio-hb.com').paginate(per_page: 20, page: params[:page])
+    @admins = Admin.paginate(per_page: 20, page: params[:page])
   end
 
   def new

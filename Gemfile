@@ -32,7 +32,6 @@ gem 'htmlentities', '~> 4.3.4'
 gem 'slim', '~> 3.0.7'
 gem 'will_paginate', '~> 3.1.0'
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -55,3 +54,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'temping'
 end
+
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
