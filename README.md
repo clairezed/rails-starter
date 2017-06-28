@@ -95,6 +95,35 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - back office inspired by https://github.com/modularcode/modular-admin-html
 
 
+## Gotcha
+
+### Yarn and font-awesome
+
+Due to sass-rails helper `font-url`, couldn't find for now an other way to have it work than :
+
+```bash
+yarn add font-awesome
+```
+
+Copy `node_modules/font-awesome/fonts/` to `app/assets/fonts`.
+Add `@import "font-awesome/scss/font-awesome"` in `app/assets/stylesheets/administration.sass`.
+
+Change `node_modules/font-awesome/scss/_path.scss` to : 
+
+```scss
+@font-face {
+  font-family: 'FontAwesome';
+  src: font-url('fontawesome-webfont.eot?v=#{$fa-version}');
+  src: font-url('fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    font-url('fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+    font-url('fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    font-url('fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    font-url('fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+//  src: font-url('FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+```
 
 ## TODO
 - [ ] régler le slideToggle 'open' du submenu
