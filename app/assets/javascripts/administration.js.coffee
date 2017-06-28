@@ -1,5 +1,5 @@
+#= require rails-ujs
 #= require jquery
-#= require jquery_ujs
 #= require vendor/tether.min 
 #= require bootstrap
 #= require vendor/bootstrap-datepicker 

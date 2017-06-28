@@ -17,3 +17,6 @@ log/services/*
 
 Gemfile.lock
 config/database.yml
+
+/node_modules
+/yarn-error.log
