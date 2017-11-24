@@ -6,10 +6,10 @@ rvm:
   - 2.4.2
 
 cache: 
-  bundler: true
-  yarn: true
   directories:
     - node_modules
+  bundler: true
+  yarn: true
 
 bundler_args: --without development
 
@@ -22,7 +22,14 @@ services:
   - postgresql
   
 before_install:
-- gem install bundler
+  - gem install bundler
+
+install:
+  - bundle install
+  - nvm install node
+  - node -v
+  - npm i -g yarn
+  - yarn
 
 before_script:
   - cp config/database.travis.yml config/database.yml
