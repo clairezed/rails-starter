@@ -33,7 +33,19 @@ Your website should be accessible at [localhost:3000](http://localhost:3000/).
 *End with an example of getting some data out of the system or using it for a little demo*
 -> TODO
 
-### Using 
+## Using
+
+### Installing js libs
+
+This project uses yarn. Install dependencies via yarn and add the library reference in your js manifesto. Exemple : 
+
+```
+yarn add jquery
+```
+
+Then, in `app/assets/javascripts/application.js.coffee`, add `#= require jquery`
+
+### Email in dev
 
 - **mailcatcher** : development uses mailcatcher 
 
@@ -99,6 +111,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ### Yarn and font-awesome
 
+#### V1
+
 Due to sass-rails helper `font-url`, couldn't find for now an other way to have it work than :
 
 ```bash
@@ -124,6 +138,23 @@ Change `node_modules/font-awesome/scss/_path.scss` to :
   font-style: normal;
 }
 ```
+
+#### V2 
+
+Create `app/assets/stylesheets/shared/fa-font-path-override.sass` : 
+
+```sass
+$fa-font-path:  "font-awesome/fonts/" !default
+```
+
+Add it in your sass manifest, before font-awesome :
+
+```scss
+@import "shared/fa-font-path-override"
+@import "font-awesome/scss/font-awesome"
+```
+
+source : [sheerdevelopment.com/posts/using-yarn-with-rails](https://sheerdevelopment.com/posts/using-yarn-with-rails)
 
 ## TODO
 - [ ] régler le slideToggle 'open' du submenu
@@ -155,3 +186,4 @@ Change `node_modules/font-awesome/scss/_path.scss` to :
 -> Vérifier la présence de "TODO" dans le code
 
 - remplacer will_paginate par kaminari
+- get rid of glyphicon ? 

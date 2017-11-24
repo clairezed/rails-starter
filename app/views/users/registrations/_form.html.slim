@@ -1,0 +1,29 @@
+= f.shb_form_errors
+.form-group
+  label.form-label-default Civilité
+  .controls-default
+    label.radio-inline
+      =f.radio_button :gender, "m"
+      | M.
+    label.radio-inline
+      =f.radio_button :gender, "ms"
+      | Mme
+    label.radio-inline
+      =f.radio_button :gender, "miss"
+      | Mlle
+      
+= f.shb_text_field :lastname, {class: "required"}
+= f.shb_text_field :firstname, {class: "required"}
+= f.shb_email_field :email, {class: "required"}
+= f.shb_text_field :phone
+= f.shb_text_field :address
+= f.shb_text_field :zipcode
+= f.shb_text_field :city
+= f.shb_password_field :password
+= f.shb_password_field :password_confirmation
+- if !f.object.new_record?
+  = f.shb_password_field :current_password
+.form-group
+  .form-actions
+    hr
+    => f.submit button_name, class: "btn btn-primary", style: "margin-right: 2px", id: "submit_and_leave"

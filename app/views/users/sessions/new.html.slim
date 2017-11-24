@@ -1,0 +1,27 @@
+- content_for :current_navigation_section, :sign_in 
+
+h1 Se connecter
+
+= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"} do |f| 
+  - unless flash[:alert].blank? 
+    .error_explanation
+      p= flash[:alert]
+
+  = f.shb_email_field :email, {class: "required"}, {autofocus: true} 
+  = f.shb_password_field :password, {class: "required"} 
+
+  - if devise_mapping.rememberable? 
+    .form-group
+      label.form-label-default
+      .controls-default
+        label.checkbox-inline
+          = f.check_box :remember_me  
+          = f.label :remember_me, "Se souvenir de moi" 
+  .form-group
+    .form-actions
+      hr
+      = f.submit "Connexion", class: "btn btn-primary", style: "margin-right: 2px", id: "submit_and_leave"
+
+
+
+= render "users/shared/links" 

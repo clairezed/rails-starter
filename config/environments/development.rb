@@ -61,6 +61,8 @@ Rails.application.configure do
     # Bullet.add_footer = true
   end
 
+  # Mailer config =====================================================
+
   HOST = 'localhost:3000'
   URL = "http://#{HOST}"
 

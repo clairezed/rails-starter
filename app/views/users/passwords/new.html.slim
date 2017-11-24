@@ -1,0 +1,18 @@
+h3 Mot de passe oublié ?
+
+.alert.alert-info
+  ' Merci de renseigner votre adresse email afin de recevoir la procédure à suivre.
+
+= form_for resource, as: resource_name, url: password_path(resource_name),\
+  html: { method: :post, role: "form", class: "form-horizontal" } do |f|
+
+  = f.shb_form_errors
+
+  = f.shb_email_field :email, {class: "required"}
+
+  .form-group
+    .form-actions
+      hr
+      => link_to "Annuler", new_session_path(resource_name), class: "btn"
+      = f.submit "Valider", class: "btn btn-primary"
+  .clearfix
