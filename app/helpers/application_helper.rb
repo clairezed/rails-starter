@@ -86,13 +86,14 @@ module ApplicationHelper
   #
   def menu_link(*args, &block)
     options = block_given? ? args[1] : args[2]
+    # p options
     section = options.delete(:section)
     sub_section = options.delete(:sub_section)
 
     li_class = options.delete(:li_class) || 'nav-item'
     if section.present? && currently_in_section?(section) || sub_section.present? && currently_in_sub_section?(sub_section)
       # dup to deal with frozen_string_literal
-      li_class.dup << ' active'
+      li_class= li_class.dup << ' active'
     end
     tag_options = { class: li_class }
     content_tag :li, link_to(*args, &block), tag_options
