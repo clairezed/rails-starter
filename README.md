@@ -156,6 +156,8 @@ Add it in your sass manifest, before font-awesome :
 
 source : [sheerdevelopment.com/posts/using-yarn-with-rails](https://sheerdevelopment.com/posts/using-yarn-with-rails)
 
+If problems in prod : https://blog.ronaldchacon.com/rails-5-1-yarn-webfonts-and-sass
+
 ## TODO
 - [ ] régler le slideToggle 'open' du submenu
 
