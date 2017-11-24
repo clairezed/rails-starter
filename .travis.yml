@@ -1,9 +1,16 @@
 # sudo: false
 
 language: ruby
+
 rvm:
-  - 2.4.0
-cache: bundler
+  - 2.4.2
+
+cache: 
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules
+
 bundler_args: --without development
 
 # env:
@@ -14,6 +21,9 @@ bundler_args: --without development
 services:
   - postgresql
   
+before_install:
+- gem install bundler
+
 before_script:
   - cp config/database.travis.yml config/database.yml
   # - cp config/application.yml.example config/application.yml
