@@ -3,7 +3,7 @@
 .container
   h1 Connexion à l'espace d'administration
 
-  .card.card-block
+  .card.card-body
     = form_for resource, as: resource_name, url: session_path(resource_name),\
       html: {role: "form", class: "form-horizontal"} do |f|
 

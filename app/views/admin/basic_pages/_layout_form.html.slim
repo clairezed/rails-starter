@@ -4,7 +4,7 @@
   h1
     | Gestion des Pages Basiques
     = link_to admin_basic_pages_path, class: 'btn btn-default float-right' do
-      .glyphicon.glyphicon-arrow-left
+      i.fa.fa-arrow-left
       |  Retour
 
 .card
@@ -28,6 +28,6 @@
   - else
     h2.card-header Créer une nouvelle page
 
-    .card-block
+    .card-body
       = yield
 

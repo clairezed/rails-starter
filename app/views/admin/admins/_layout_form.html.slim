@@ -5,7 +5,7 @@
     | Gestion des admins
     = link_to admin_admins_path, class: 'btn btn-default float-right' do
       
-      .glyphicon.glyphicon-arrow-left
+      i.fa.fa-arrow-left
       |  Retour
 
 .card
@@ -29,6 +29,6 @@
   - else
     h2.card-header Créer un nouvel admin
 
-    .card-block
+    .card-body
       = yield
 

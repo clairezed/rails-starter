@@ -16,7 +16,7 @@
           td= seo.keywords.to_s.truncate(50)
           td= seo.description.to_s.truncate(50)
           td.action-btns
-            => link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_admin_seo_path(seo),
+            => link_to raw("<i class='fa fa-pencil'></i>"), edit_admin_seo_path(seo),
               class: "btn btn-sm btn-info", title: "Editer"
                   
       - if @seos.empty?
