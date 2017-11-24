@@ -1,0 +1,44 @@
+version: '3'
+
+volumes:
+  postgres-data:
+    driver: local
+  app-gems:
+    driver: local
+  redis-data:
+    driver: local
+
+
+services:
+  db:
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
+  web: &app_base
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - app-gems:/usr/local/bundle
+    links:
+      - db
+    depends_on:
+      - 'db'
+    tty: true
+    stdin_open: true
+    # env_file:
+    #   - web.env
+    environment: &app_environment
+      RACK_ENV: development
+      RAILS_ENV: development    

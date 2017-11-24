@@ -67,14 +67,15 @@ Rails.application.configure do
   URL = "http://#{HOST}"
 
   SYSTEM_MAILER     = 'Claire Zuliani <noreply@clairezuliani.com>'
-  DEFAULT_RECIPIENT = 'Contact <clairezuliani@gmail.com>'
+  DEFAULT_RECIPIENT = 'Contact <contact@clairezuliani.com>'
 
   routes.default_url_options = { host: HOST }
 
   # Mail config =========================
   # Config for mailcatcher
+  MAILCATCHER_HOST = ENV['MAILCATCHER_HOST'] || 'localhost'
   config.action_mailer.default_url_options = { host: HOST }
   config.action_mailer.asset_host = URL
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+  config.action_mailer.smtp_settings = { address: MAILCATCHER_HOST, port: 1025 }
 end

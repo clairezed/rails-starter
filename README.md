@@ -16,10 +16,51 @@ Rails personal project base
 
 ### Installing
 
+#### With Docker
+
+You need first to have [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) installed.
+
+```bash
+cp config/database_docker.yml config/database.yml
+
+# you may have to start docker commands with `sudo` (depending on how you did install docker)
+
+# build app via docker compose
+docker-compose build
+docker-compose up
+# Ctrl + C to exit
+
+# on first install, create the database, apply migrations and data seeds
+docker-compose run web rake db:setup
+
+# you may need to install yarn packages
+docker-compose run web yarn
 ```
+
+#### With the standard configuration
+
+You need first to have postgresql installed and running on your OS
+
+```bash
 git clone git@github.com:clairezed/rails-starter.git
 cd rails-starter
 bundle install
+yarn install
+```
+
+Database configuration :
+
+```bash
+cp config/database_example.yml config/database.yml
+# Update database.yml to cope with your own database connection credentials
+sudo -i -u postgres
+psql
+create role XXX with createdb login password 'XXX';
+# Ctrl + D to exit
+```
+
+
+```
 cp config/database_example.yml config/database.yml
 # Update database.yml to cope with your own database connection credentials
 bin/rake db:setup
@@ -29,29 +70,77 @@ rails server
 
 Your website should be accessible at [localhost:3000](http://localhost:3000/).
 
+##### Mailcatcher
 
-*End with an example of getting some data out of the system or using it for a little demo*
--> TODO
+Email notifications are caught by [MailCatcher](https://mailcatcher.me/) in development. Install it globally if you haven't yet. 
 
-## Using
+    gem install mailcatcher
 
-### Installing js libs
+Start the service
 
-This project uses yarn. Install dependencies via yarn and add the library reference in your js manifesto. Exemple : 
+    mailcatcher
 
-```
-yarn add jquery
-```
+Then, open your web browser at `http://localhost:1080` to access the MailCatcher interface.
+
+## Running
+
+### With Docker
+
+If you had a standard rails application and have to shut down a few services to have docker run : 
+    
+    # stopping mailcatcher
+    lsof -i :1080
+    kill [mailcatcher PID]
+    # stopping postgresql
+    sudo service postgresql stop 
+
+Start the dev server
+
+    docker-compose up
+
+Application is available at [localhost:3000](http://localhost:3000/).
+Mailcatcher is available at [localhost:1080](http://localhost:1080/).
+
+Start a rails console in another terminal
+
+    docker-compose run web rails console
+
+Stop the application and remove all the containers
+
+    docker-compose down 
+
+> volumes defined in `docker-compose.yml` are persisted
+
+#### Installing dependencies 
+
+The app uses bundler as ruby dependencies manager and `yarn` as a javascript dependencies manager.
+
+Update the gems after editing the Gemfile
+
+    docker-compose run web bundle install
+    docker-compose up --build
+
+For javascript
+
+  # add to 'dependences' group
+  docker-compose run web yarn add <package-name>
+
+  # add to 'devDependencies' group
+  docker-compose run web yarn add <package-name> --dev
+
+### With the standard configuration
+
+This project uses `yarn` as a javascript dependencies manager. 
+
+  # add to 'dependences' group
+  yarn add <package-name>
+
+  # add to 'devDependencies' group
+  yarn add <package-name> --dev
+
+Exemple : `yarn add jquery`
 
 Then, in `app/assets/javascripts/application.js.coffee`, add `#= require jquery`
-
-### Email in dev
-
-- **mailcatcher** : development uses mailcatcher 
-
-Email notifications are be caught by [MailCatcher](https://mailcatcher.me/) in development. Install it globally if you haven't yet. 
-
-Then, to see the emails sent by the platform, open your web browser at http://localhost:1080 to access the MailCatcher interface.
 
 ## Running the tests
 
@@ -62,6 +151,8 @@ bundle exec rspec
 ```
 
 The project could clearly have more tests. Don't hesitate to contribute, I'll be happy to help !
+
+### Continuous Integration
 
 There's a `.travis.yml` file to integrate with Travis CI.
 
