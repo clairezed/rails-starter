@@ -8,8 +8,8 @@
       span.glyphicon.glyphicon-plus>
       | Ajouter un admin
 
-.card.card-block
-  .content-main
+.card
+  .card-body
     small.float-right = I18n.t("results", count: @admins.count)
     = yield
 

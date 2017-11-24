@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module AdminHelper
+
   def submenu(text, sub_menu_array, &block)
     content = block_given? ? capture(&block) : ''
     toggle_class = controller.controller_name.in?(sub_menu_array) ? 'active open' : ''
@@ -15,4 +16,5 @@ module AdminHelper
       end)
     end
   end
+  
 end

@@ -25,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Views ====================================================
 gem 'autoprefixer-rails', '~> 7.1.1'
-gem 'bootstrap', '~> 4.0.0.alpha3.1'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'htmlentities', '~> 4.3.4'
 gem 'slim', '~> 3.0.7'
 gem 'will_paginate', '~> 3.1.0'

@@ -1,10 +1,11 @@
 - content_for :current_navigation_section, :seos
 
-.card.card-block
+.title-block
   h1
-    | Gestion des SEO des pages statiques
+    | Gestion du référencement des pages statiques
 
-  .content-main
+.card
+  .card-body
     small.float-right = I18n.t("results", count: @seos.count)
     = yield
 

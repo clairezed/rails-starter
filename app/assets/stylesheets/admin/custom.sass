@@ -3,12 +3,10 @@
 ////////////////////////////
 
 .form-label-default
-  @extend .form-control-label
   @extend .text-right
   @extend .col-md-2
   font-weight: normal
 .form-label-large
-  @extend .form-control-label
   @extend .text-right
   @extend .col-md-4
 .controls-default
@@ -43,7 +41,8 @@
   @extend .alert-danger
 
 .field_with_errors
-  @extend .has-danger
+  input
+    @extend .is-invalid
 
 .form-control
   border: 2px solid #ddd

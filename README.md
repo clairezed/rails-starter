@@ -9,8 +9,8 @@ Rails personal project base
 
 ### Prerequisites
 
-- ruby 2.4.0
-- rails 5.0.1
+- ruby 2.4.2
+- rails 5.1.2
 - postgresql
 
 
