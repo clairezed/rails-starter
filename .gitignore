@@ -15,7 +15,6 @@ dump.rdb
 .idea
 log/services/*
 
-Gemfile.lock
 config/database.yml
 config/database.claire.yml
 

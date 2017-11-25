@@ -22,14 +22,17 @@ html lang="#{I18n.locale}"
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
   body
-    header.main-header
-      nav.navbar.navbar-light.navbar-toggleable-md.bg-faded
-        button.navbar-toggler.navbar-toggler-right data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-          span.navbar-toggler-icon
+    header
+
+      nav.navbar.navbar-light.bg-light
+
         .container
           = link_to root_path, class: "navbar-brand" do
             = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
             ' Projet
+            
+          button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            span.navbar-toggler-icon
 
           #navbarSupportedContent.collapse.navbar-collapse
             ul.nav.navbar-nav.mr-auto
@@ -37,6 +40,10 @@ html lang="#{I18n.locale}"
                 = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
               li.nav-item
                 = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
+                
+
+
+
 
     = raw flash_messages 
     .container

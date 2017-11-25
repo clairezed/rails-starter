@@ -27,14 +27,15 @@ cp config/database.docker.yml config/database.yml
 
 # build app via docker compose
 docker-compose build
-docker-compose up
-# Ctrl + C to exit
 
 # on first install, create the database, apply migrations and data seeds
 docker-compose run web rake db:setup
 
 # you may need to install yarn packages
 docker-compose run web yarn
+
+docker-compose up
+# Ctrl + C to exit
 ```
 
 #### With the standard configuration
