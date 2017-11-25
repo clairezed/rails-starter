@@ -249,8 +249,6 @@ source : [sheerdevelopment.com/posts/using-yarn-with-rails](https://sheerdevelop
 
 If problems in prod : https://blog.ronaldchacon.com/rails-5-1-yarn-webfonts-and-sass
 
-## TODO
-- [ ] régler le slideToggle 'open' du submenu
 
 ### End writing open source docs
 
@@ -277,6 +275,14 @@ If problems in prod : https://blog.ronaldchacon.com/rails-5-1-yarn-webfonts-and-
 ## Todo
 
 -> Vérifier la présence de "TODO" dans le code
+- [ ] régler le slideToggle 'open' du submenu
 
-- remplacer will_paginate par kaminari
-- get rid of glyphicon ? 
+
+## Docker
+
+Clear down the old Containers and Images
+
+  # Delete all containers
+  docker rm $(docker ps -a -q)
+  # Delete all images
+  docker rmi $(docker images -q)

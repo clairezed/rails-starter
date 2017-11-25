@@ -66,7 +66,6 @@ Style/GuardClause:
     - 'app/controllers/application_controller.rb'
     - 'lib/hm_form_builder.rb'
 
-# Offense count: 1
-Style/MultilineTernaryOperator:
-  Exclude:
-    - 'lib/will_paginate_boostrap4_renderer.rb'
+# # Offense count: 1
+# Style/MultilineTernaryOperator:
+#   Exclude:

@@ -5,7 +5,7 @@ class Admin::BasicPagesController < Admin::BaseController
 
   def index
     params[:sort] ||= 'sort_by_position asc'
-    @basic_pages = BasicPage.apply_filters(params).paginate(per_page: 20, page: params[:page])
+    @basic_pages = BasicPage.apply_filters(params).page(params[:page]).per(20)
   end
 
   def new

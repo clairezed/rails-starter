@@ -5,7 +5,7 @@ class Admin::AdminsController < Admin::BaseController
 
   def index
     params[:sort] ||= 'email ASC'
-    @admins = Admin.paginate(per_page: 10, page: params[:page])
+    @admins = Admin.page(params[:page]).per(10)
   end
 
   def new

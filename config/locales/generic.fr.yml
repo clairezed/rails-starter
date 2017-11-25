@@ -166,6 +166,19 @@ fr:
   
   form_errors: Des erreurs ont été rencontrées
 
-  will_paginate:
-    next_label: Suivant
-    previous_label: Précédent
+  # Kaminari pagination --------------------
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "%{entry_name}  <b>%{first} - %{last}</b> sur <b>%{total}</b> au total"
+      one_page:
+        display_entries:
+          one: "<b>%{count}</b> %{entry_name}"
+          other: "<b>tous les %{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "Premier"
+      last: Dernier
+      next: Suivant
+      previous: "Précédent"
+      truncate: "&hellip;"
