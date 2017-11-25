@@ -21,7 +21,7 @@ Rails personal project base
 You need first to have [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) installed.
 
 ```bash
-cp config/database_docker.yml config/database.yml
+cp config/database.docker.yml config/database.yml
 
 # you may have to start docker commands with `sudo` (depending on how you did install docker)
 
@@ -50,37 +50,26 @@ yarn install
 
 Database configuration :
 
-```bash
-cp config/database_example.yml config/database.yml
-# Update database.yml to cope with your own database connection credentials
-sudo -i -u postgres
-psql
-create role XXX with createdb login password 'XXX';
-# Ctrl + D to exit
-```
+    cp config/database_example.yml config/database.yml
+    # Update database.yml to cope with your own database connection credentials
+    sudo -i -u postgres
+    psql
+    create role XXX with createdb login password 'XXX';
+    # Ctrl + D to exit
+    bin/rake db:setup
+    bin/rake db:seed
+    rails server
 
-
-```
-cp config/database_example.yml config/database.yml
-# Update database.yml to cope with your own database connection credentials
-bin/rake db:setup
-bin/rake db:seed
-rails server
-```
 
 Your website should be accessible at [localhost:3000](http://localhost:3000/).
 
 ##### Mailcatcher
 
-Email notifications are caught by [MailCatcher](https://mailcatcher.me/) in development. Install it globally if you haven't yet. 
+Email notifications are caught by [MailCatcher](https://mailcatcher.me/) in development. Install it globally (outside of your project folder) if you haven't yet : `gem install mailcatcher` 
 
-    gem install mailcatcher
+Start the service outside of your project folder : `mailcatcher`
 
-Start the service
-
-    mailcatcher
-
-Then, open your web browser at `http://localhost:1080` to access the MailCatcher interface.
+Then, open your web browser at [localhost:1080](http://localhost:1080) to access the MailCatcher interface.
 
 ## Running
 
@@ -121,22 +110,24 @@ Update the gems after editing the Gemfile
     docker-compose up --build
 
 For javascript
+    
+    ```
+    # add to 'dependences' group
+    docker-compose run web yarn add <package-name>
 
-  # add to 'dependences' group
-  docker-compose run web yarn add <package-name>
-
-  # add to 'devDependencies' group
-  docker-compose run web yarn add <package-name> --dev
+    # add to 'devDependencies' group
+    docker-compose run web yarn add <package-name> --dev
+    ```
 
 ### With the standard configuration
 
 This project uses `yarn` as a javascript dependencies manager. 
 
-  # add to 'dependences' group
-  yarn add <package-name>
+    # add to 'dependences' group
+    yarn add <package-name>
 
-  # add to 'devDependencies' group
-  yarn add <package-name> --dev
+    # add to 'devDependencies' group
+    yarn add <package-name> --dev
 
 Exemple : `yarn add jquery`
 
