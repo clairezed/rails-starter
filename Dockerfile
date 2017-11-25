@@ -16,23 +16,23 @@ RUN apt-get update -qq && apt-get install -y \
 # Configure the main working directory. This is the base 
 # directory used in any further RUN, COPY, and ENTRYPOINT 
 # commands.
-RUN mkdir /myapp
-WORKDIR /myapp
-ADD Gemfile /myapp/Gemfile
+RUN mkdir /app
+WORKDIR /app
 
 # Copy the Gemfile as well as the Gemfile.lock and install 
 # the RubyGems. This is a separate step so the dependencies 
 # will be cached unless changes to one of those two files 
 # are made.
-ADD Gemfile.lock /myapp/Gemfile.lock
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
-ADD config/database.docker.yml /myapp/config/database.yml
+ADD config/database.docker.yml /app/config/database.yml
 
 # install node dependencies (e.g. webpack)
 # next two steps will be cached unless either package.json or
 # yarn.lock changes
-COPY package.json yarn.lock /myapp/
+COPY package.json yarn.lock /app/
 RUN yarn install
 
-ADD . /myapp
+ADD . /app
